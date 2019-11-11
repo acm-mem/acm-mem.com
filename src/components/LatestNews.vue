@@ -8,15 +8,14 @@
 
 <script lang="js">
     import * as Twitter from 'twitter';
-    import {Status as Tweet, User} from 'twitter-d';
     import {fromEvent, of} from 'rxjs';
     import {switchMap} from 'rxjs/operators'
-
+    console.log(process.env);
     const client = new Twitter({
-        consumer_key: process.env.TWIT_CONSUMER_KEY,
-        consumer_secret: process.env.TWIT_CONSUMER_SECRET,
-        access_token: process.env.TWIT_ACCESS_TOKEN,
-        access_token_secret: process.env.TWIT_ACCESS_SECRET,
+        consumer_key: process.env.VUE_APP_TWIT_CONSUMER_KEY,
+        consumer_secret: process.env.VUE_APP_TWIT_CONSUMER_SECRET,
+        access_token: process.env.VUE_APP_TWIT_ACCESS_TOKEN,
+        access_token_secret: process.env.VUE_APP_TWIT_ACCESS_SECRET,
     });
 
     export default {
@@ -30,13 +29,11 @@
         },
         methods: {
             getTweet() {
-                return of(new Twitter({
-                    consumer_key: process.env.TWIT_CONSUMER_KEY,
-                    consumer_secret: process.env.TWIT_CONSUMER_SECRET,
-                    access_token: process.env.TWIT_ACCESS_TOKEN,
-                    access_token_secret: process.env.TWIT_ACCESS_SECRET,
-                })).pipe(
-                    switchMap(client => fromEvent(client.stream('statuses/user_timeline', {screen_name: 'ACM_UofM', count: 1}), 'data'))
+                return of(client).pipe(
+                    switchMap(client => {
+                        console.log(client);
+                        fromEvent(client.stream('statuses/user_timeline', {screen_name: 'ACM_UofM', count: 1}), 'data')
+                    })
                 );
             }
         },
