@@ -7,7 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "node_modules/gh-pages-deploy/bin/gh-pages-deploy"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist/acm-mem/",
+    "cname": "acm-mem.com",
+    "noprompt": true
   },
   "private": true,
   "dependencies": {
@@ -31,10 +37,11 @@
     "@angular/cli": "~8.2.2",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "gh-pages-deploy": "^0.5.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
