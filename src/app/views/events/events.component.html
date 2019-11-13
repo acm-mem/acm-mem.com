@@ -1,0 +1,11 @@
+<div class="standard-hero">
+  <h1>Events</h1>
+  <h2><a
+    href="webcal://p24-caldav.icloud.com/published/2/MTAwMzIwMTY3NDEwMDMyMFN7SAvlTKdkhJgXkNtZy-JgymLj6bA4VQVtoQYUQCw8Yvc5KubH6TwYoMlCwfK_EBYL1d5Gdd1-W3CRIHQQv7Q">Subscribe</a>
+  </h2>
+</div>
+<ng-container *ngIf="events | async as $events">
+  <div class="events" [@listStagger]="$events.length">
+    <app-calendar-event *ngFor="let event of $events" [event]="event"></app-calendar-event>
+  </div>
+</ng-container>

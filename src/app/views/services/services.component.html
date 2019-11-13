@@ -1,0 +1,16 @@
+<div class="standard-hero">
+  <h1>Services</h1>
+</div>
+<div class="services">
+  <a *ngFor="let service of services" class="item" [href]="service.url">
+    <div class="img_item" [ngStyle]="{'background': 'url(' + service.img + ')'}"></div>
+    <div class="item_desc_container">
+      <div class="item_title">
+        {{service.name}}
+      </div>
+      <div class="item_desc">
+        {{service.description}}
+      </div>
+    </div>
+  </a>
+</div>

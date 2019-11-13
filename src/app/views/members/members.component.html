@@ -1,0 +1,10 @@
+<div class="standard-hero">
+  <h1>Members</h1>
+  <h2>Current</h2>
+</div>
+
+<ng-container *ngIf='members | async as $members'>
+<ul class="members" [@listStagger]='$members.length'>
+  <li *ngFor="let member of $members">{{member.fullName}} - <span class="position">{{member.position}}</span></li>
+</ul>
+</ng-container>

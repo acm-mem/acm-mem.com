@@ -1,0 +1,32 @@
+:host {
+  padding: 2em;
+  border: 1px solid #f1e9e9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1, h2 {
+    margin: 0;
+  }
+
+  .date-range {
+    margin-right: 1em;
+  }
+
+  .location {
+    font-weight: normal;
+    color: gray;
+    font-size: 1.3em;
+  }
+
+  .date {
+    margin-top: 2em;
+    border-top: 1px solid #f1e9e9;
+    padding-top: 0.5rem;
+  }
+
+  .date:first-child {
+    border-top: none!important;
+  }
+}

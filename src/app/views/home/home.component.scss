@@ -1,0 +1,47 @@
+.welcome-hero {
+  text-align: center !important;
+
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  h2 {
+    color: lightgray;
+    margin: 0;
+  }
+}
+
+.recent-tweet {
+  text-align: center;
+  padding: 3em;
+  border-radius: 8px;
+  margin-bottom: 2em;
+
+  img {
+    max-width: 70%;
+    border-radius: 4px;
+  }
+
+  .recent-tweet-header {
+    margin-bottom: 2em;
+    padding-left: 35%;
+    padding-right: 35%;
+    h1 {
+      font-size: 1rem;
+      color: gray;
+      border-bottom: 1px solid #8080803d;
+      padding-bottom: 1em;
+    }
+  }
+
+  .tweet-text {
+    font-size: 1.2rem !important;
+    width: 100%;
+  }
+
+  .tweet-date {
+    font-size: 1em;
+    color: gray;
+  }
+}
