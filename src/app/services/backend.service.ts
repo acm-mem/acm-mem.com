@@ -19,7 +19,7 @@ export class BackendService {
   }
 
   getTweets(): Observable<Tweet> {
-    return this.httpClient.get<TweetResponse>('http://proxy.acm-mem.com:6969/api/tweets').pipe(
+    return this.httpClient.get<TweetResponse>('https://proxy.acm-mem.com:6969/api/tweets').pipe(
       map(res => {
         if (res.success) {
           return Tweet.fromJSON(res.tweets[0]);
@@ -30,7 +30,7 @@ export class BackendService {
   }
 
   getMembers(): Observable<Member[]> {
-    return this.httpClient.get<RosterResponse>('http://proxy.acm-mem.com:6969/api/roster').pipe(
+    return this.httpClient.get<RosterResponse>('https://proxy.acm-mem.com:6969/api/roster').pipe(
       map(res => {
         const members: Member[] = [];
 
@@ -51,7 +51,7 @@ export class BackendService {
   }
 
   getEvents(): Observable<Event[]> {
-    return this.httpClient.get<CalendarsResponse>('http://proxy.acm-mem.com:6969/api/calendar').pipe(
+    return this.httpClient.get<CalendarsResponse>('https://proxy.acm-mem.com:6969/api/calendar').pipe(
       map(res => {
         if (res.success) {
           const calendar = Calendar.fromJSON(res.calendars[0]);
@@ -65,7 +65,7 @@ export class BackendService {
   }
 
   getPictures(): Observable<string[]> {
-    return this.httpClient.get<PicturesResponse>('http://proxy.acm-mem.com:6969/api/pictures').pipe(
+    return this.httpClient.get<PicturesResponse>('https://proxy.acm-mem.com:6969/api/pictures').pipe(
       map(res => {
         if (res.success) {
          return res.imageURLs;
