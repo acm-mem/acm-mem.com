@@ -6,7 +6,9 @@
 <ng-container *ngIf='pictures | async as $pictures; else loading'>
 <div class="pictures" [@listStagger]='$pictures.length'>
   <a *ngFor="let imageURL of $pictures" [href]="imageURL" @listStagger>
-    <img alt="Picture" [src]="imageURL">
+    <ngx-progressive-image-loader>
+      <img [src]="imageURL" alt="" ngxProgressiveImage>
+    </ngx-progressive-image-loader>
   </a>
 </div>
 </ng-container>

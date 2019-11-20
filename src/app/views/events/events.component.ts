@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BackendService} from '../../services/backend.service';
 import {Observable} from 'rxjs';
-import {Event} from '../../models/event.model';
 import {startWith} from 'rxjs/operators';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import {Title} from '@angular/platform-browser';
+import {EventGroup} from '../../models/event-group.model';
 
 @Component({
   selector: 'app-events',
@@ -35,14 +35,14 @@ import {Title} from '@angular/platform-browser';
   ]
 })
 export class EventsComponent implements OnInit {
-  events: Observable<Event[]>;
+  eventGroups: Observable<EventGroup[]>;
 
   constructor(private title: Title, private backendService: BackendService) {
     this.title.setTitle('ACM @ Memphis - Events');
   }
 
   ngOnInit() {
-    this.events = this.backendService.getEvents().pipe(
+    this.eventGroups = this.backendService.getEvents().pipe(
       startWith([])
     );
   }

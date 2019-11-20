@@ -27,6 +27,7 @@
     "@angular/router": "~8.2.0",
     "@ctrl/ngx-github-buttons": "^3.2.7",
     "ngx-loading": "^8.0.0",
+    "ngx-progressive-image-loader": "^3.0.2",
     "rxjs": "~6.4.0",
     "ts-serializer": "^2.2.4",
     "tslib": "^1.10.0",

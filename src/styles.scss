@@ -1,3 +1,5 @@
+@import '~ngx-progressive-image-loader/ngx-progressive-image-loader';
+
 html,
 body {
   position: relative;
@@ -37,3 +39,6 @@ body {
     }
   }
 }
+
+$scale: 1.0; // the scale of loading image in place holder
+@include progressive-image-loader($scale);

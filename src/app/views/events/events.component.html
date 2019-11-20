@@ -4,8 +4,14 @@
     href="webcal://p24-caldav.icloud.com/published/2/MTAwMzIwMTY3NDEwMDMyMFN7SAvlTKdkhJgXkNtZy-JgymLj6bA4VQVtoQYUQCw8Yvc5KubH6TwYoMlCwfK_EBYL1d5Gdd1-W3CRIHQQv7Q">Subscribe</a>
   </h2>
 </div>
-<ng-container *ngIf="events | async as $events">
-  <div class="events" [@listStagger]="$events.length">
-    <app-calendar-event *ngFor="let event of $events" [event]="event"></app-calendar-event>
+<ng-container *ngIf="eventGroups | async as $eventGroups">
+  <div class="events" [@listStagger]="$eventGroups.length">
+    <div class="event-group" *ngFor="let eventGroup of $eventGroups">
+      <h1 class="event-date">{{eventGroup.date | eventGroupDate}}</h1>
+      <app-calendar-event *ngFor="let event of eventGroup.events" [event]="event"></app-calendar-event>
+    </div>
   </div>
+  <ng-container *ngIf="$eventGroups.length === 0">
+    <h1 class="no-events">No Events</h1>
+  </ng-container>
 </ng-container>

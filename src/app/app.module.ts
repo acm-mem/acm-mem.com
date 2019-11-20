@@ -17,7 +17,9 @@ import {TweetDate} from './pipes/tweet-date.pipe';
 import {EventDatePipe} from './pipes/event-date.pipe';
 import {NtkmeButtonModule} from '@ctrl/ngx-github-buttons';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
-import { TweetTextPipe } from './pipes/tweet-text.pipe';
+import {TweetTextPipe} from './pipes/tweet-text.pipe';
+import {EventGroupDatePipe} from './pipes/event-group-date.pipe';
+import {IImageLoaderOptions, NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { TweetTextPipe } from './pipes/tweet-text.pipe';
     TweetDate,
     EventDatePipe,
     TweetTextPipe,
+    EventGroupDatePipe,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,13 @@ import { TweetTextPipe } from './pipes/tweet-text.pipe';
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
       backdropBorderRadius: '4px',
     }),
+    NgxProgressiveImageLoaderModule.forRoot( {
+      rootMargin: '0px',
+      threshold: 0.1,
+      filter: 'blur(3px)',
+      imageRatio: 16 / 9,
+      placeholderImageSrc: '/assets/images/placeholder.png'
+    } as IImageLoaderOptions),
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,

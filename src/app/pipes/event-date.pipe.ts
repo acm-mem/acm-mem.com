@@ -7,7 +7,6 @@ import {Event} from '../models/event.model';
 export class EventDatePipe implements PipeTransform {
 
   transform(event: Event): string {
-  //  let localeOptions = {dateStyle: 'medium', timeStyle: 'short'};
     let transformedString = '';
     if (event.isAllDay) {
       const localeOptions = {weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric'};
