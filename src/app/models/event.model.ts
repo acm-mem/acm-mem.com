@@ -27,7 +27,7 @@ export class Event extends Serializable {
 
   get createdDate(): Date | null {
     if (this.created) {
-      return this.convertDate(this.created);
+      return Event.convertDate(this.created);
     }
 
     return null;
@@ -35,7 +35,7 @@ export class Event extends Serializable {
 
   get startDate(): Date | null {
     if (this.start) {
-      return this.convertDate(this.start);
+      return Event.convertDate(this.start);
     }
 
     return null;
@@ -43,7 +43,7 @@ export class Event extends Serializable {
 
   get endDate(): Date | null {
     if (this.start) {
-      return this.convertDate(this.end);
+      return Event.convertDate(this.end);
     }
 
     return null;
@@ -67,53 +67,18 @@ export class Event extends Serializable {
     return this.start && !this.start.includes('T') && this.end && !this.end.includes('T');
   }
 
-  private convertDate(dateString: string): Date | null {
-    if (!dateString.includes('T')) {
-     return this.convertSingleDate(dateString);
-    }
-
-    if (!this.validateDate(dateString)) {
-      return null;
-    }
-
+  private static convertDate(dateString: string): Date | null {
     const year = Number(dateString.substr(0, 4));
     const month = parseInt(dateString.substr(4, 2), 10) - 1;
     const day = Number(dateString.substr(6, 2));
+    if (!dateString.includes('T')) {
+      return new Date(Date.UTC(year, month, day));
+    }
+
     const hour = Number(dateString.substr(9, 2));
     const minute = Number(dateString.substr(11, 2));
     const second = Number(dateString.substr(13, 2));
 
     return new Date(Date.UTC(year, month, day, hour, minute, second));
-  }
-
-  private convertSingleDate(dateString: string): Date {
-    const year = Number(dateString.substr(0, 4));
-    const month = parseInt(dateString.substr(4, 2), 10) - 1;
-    const day = Number(dateString.substr(6, 2));
-
-    return new Date(Date.UTC(year, month, day));
-  }
-
-  private validateDate(dateString: string): boolean {
-    const d = dateString.split('');
-    const T_INDEX = 8;
-    const Z_INDEX = 15;
-
-    if (d.length !== 16) {
-      return false;
-    }
-
-    if (d[T_INDEX] !== 'T') {
-      return false;
-    }
-
-    if (d[Z_INDEX] !== 'Z') {
-      return false;
-    }
-
-    return d
-      .filter((x, i) => i !== T_INDEX && i !== Z_INDEX)
-      // tslint:disable-next-line:radix
-      .every(x => !isNaN(parseInt(x)));
   }
 }

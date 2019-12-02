@@ -59,20 +59,14 @@ export class BackendService {
             const eventGroups: EventGroup[] = [];
             calendar.events.map(event => event.startDate)
               .forEach(eventDate => {
-                const today = new Date();
-
-                eventDate.setHours(0, 0, 0, 0);
-                today.setHours(0, 0, 0, 0);
-
-                if (eventDate >= today) {
-                  console.log(eventDate);
                   const eventsForDate = calendar.events.filter(event => {
                     console.log(event);
                     return event.startDate.toISOString() === eventDate.toISOString();
                   });
+
                   console.log(eventsForDate);
                   eventGroups.push(new EventGroup(eventsForDate, eventDate));
-                }
+
               });
             return eventGroups;
           }
