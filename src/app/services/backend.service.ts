@@ -65,7 +65,11 @@ export class BackendService {
                 today.setHours(0, 0, 0, 0);
 
                 if (eventDate >= today) {
-                  const eventsForDate = calendar.events.filter(event => event.startDate.toISOString() === eventDate.toISOString());
+                  console.log(eventDate);
+                  const eventsForDate = calendar.events.filter(event => {
+                    console.log(event);
+                    return event.startDate.toISOString() === eventDate.toISOString();
+                  });
                   console.log(eventsForDate);
                   eventGroups.push(new EventGroup(eventsForDate, eventDate));
                 }
