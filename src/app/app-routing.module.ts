@@ -5,6 +5,7 @@ import {EventsComponent} from './views/events/events.component';
 import {MembersComponent} from './views/members/members.component';
 import {PicturesComponent} from './views/pictures/pictures.component';
 import {ServicesComponent} from './views/services/services.component';
+import {HomeworkComponent} from './views/homework/homework.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'services',
     component: ServicesComponent,
+  },
+  {
+    path: 'homework',
+    component: HomeworkComponent,
   },
 ];
 

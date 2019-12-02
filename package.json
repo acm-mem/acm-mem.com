@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng deploy ng deploy --cname=acm-mem.com"
+    "deploy": "ng deploy --cname=acm-mem.com"
   },
   "gh-pages-deploy": {
     "staticpath": "dist/acm-mem/",

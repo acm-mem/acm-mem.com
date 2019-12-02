@@ -20,6 +20,10 @@ import {ngxLoadingAnimationTypes, NgxLoadingModule} from 'ngx-loading';
 import {TweetTextPipe} from './pipes/tweet-text.pipe';
 import {EventGroupDatePipe} from './pipes/event-group-date.pipe';
 import {IImageLoaderOptions, NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
+import { HomeworkComponent } from './views/homework/homework.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import {FormsModule} from '@angular/forms';
+import { HomeworkEntryComponent } from './components/homework-entry/homework-entry.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import {IImageLoaderOptions, NgxProgressiveImageLoaderModule} from 'ngx-progress
     EventDatePipe,
     TweetTextPipe,
     EventGroupDatePipe,
+    HomeworkComponent,
+    FilterPipe,
+    HomeworkEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import {IImageLoaderOptions, NgxProgressiveImageLoaderModule} from 'ngx-progress
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
       backdropBorderRadius: '4px',
     }),
-    NgxProgressiveImageLoaderModule.forRoot( {
+    NgxProgressiveImageLoaderModule.forRoot({
       rootMargin: '0px',
       threshold: 0.1,
       filter: 'blur(3px)',
@@ -53,7 +60,8 @@ import {IImageLoaderOptions, NgxProgressiveImageLoaderModule} from 'ngx-progress
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    NtkmeButtonModule
+    NtkmeButtonModule,
+    FormsModule
   ],
   providers: [
     BackendService

@@ -1,0 +1,15 @@
+.search-wrapper {
+  margin: 1em 0 4em;
+  padding: 1em 0;
+  input {
+    width: 100%;
+    font-size: 1.5em;
+    appearance: none;
+    box-shadow: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+  }
+}

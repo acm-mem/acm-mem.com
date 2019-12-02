@@ -1,0 +1,7 @@
+<div class="search-wrapper">
+  <input [(ngModel)]="searchText" placeholder="Filter...">
+</div>
+<div class="homework-list">
+  <app-homework-entry *ngFor="let homework of homeworkArray | filter : searchText"
+                      [homework]="homework"></app-homework-entry>
+</div>

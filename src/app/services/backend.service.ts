@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {TweetResponse} from '../models/response/tweet.response';
 import {CalendarsResponse} from '../models/response/calendars.response';
-import {Calendar} from '../models/calendar.model';
 import {Member} from '../models/member.model';
 import {RosterResponse} from '../models/response/roster.response';
 import {PicturesResponse} from '../models/response/pictures.response';
