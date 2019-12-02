@@ -123,8 +123,13 @@
               "devServerTarget": "acm-mem:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "acm-mem"
 }

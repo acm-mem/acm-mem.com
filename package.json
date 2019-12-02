@@ -7,8 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "node_modules/gh-pages-deploy/bin/gh-pages-deploy"
+    "e2e": "ng e2e"
   },
   "gh-pages-deploy": {
     "staticpath": "dist/acm-mem/",
@@ -26,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@ctrl/ngx-github-buttons": "^3.2.7",
+    "angular-cli-ghpages": "^0.6.0",
     "ngx-loading": "^8.0.0",
     "ngx-progressive-image-loader": "^3.0.2",
     "rxjs": "~6.4.0",
@@ -42,7 +42,6 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
-    "gh-pages-deploy": "^0.5.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
