@@ -10,6 +10,7 @@ import {Member} from '../models/member.model';
 import {RosterResponse} from '../models/response/roster.response';
 import {PicturesResponse} from '../models/response/pictures.response';
 import {EventGroup} from '../models/event-group.model';
+import {CalendarEvent} from '../models/event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,10 +54,16 @@ export class BackendService {
   getEvents(): Observable<EventGroup[]> {
     return this.httpClient.get<CalendarsResponse>('https://proxy.acm-mem.com:6969/api/calendar').pipe(
       map(res => {
+        const eventGroups: EventGroup[] = [];
+
         if (res.success) {
-          
+          const dateGroups = Object.keys(res.events);
+          dateGroups.forEach(dateGroup => {
+            const events = res.events[dateGroup].map(rawEvent => CalendarEvent.fromJSON(rawEvent));
+            eventGroups.push(new EventGroup(events, new Date(dateGroup)));
+          });
         }
-        return [];
+        return eventGroups;
       })
     );
   }

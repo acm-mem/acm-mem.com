@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BackendService} from '../../services/backend.service';
 import {Observable} from 'rxjs';
-import {startWith} from 'rxjs/operators';
+import {startWith, tap} from 'rxjs/operators';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import {Title} from '@angular/platform-browser';
 import {EventGroup} from '../../models/event-group.model';
@@ -43,7 +43,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.eventGroups = this.backendService.getEvents().pipe(
-      startWith([])
+      tap(e => console.log('Result:', e))
     );
   }
 }

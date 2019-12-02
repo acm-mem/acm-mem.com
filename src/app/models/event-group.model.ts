@@ -1,10 +1,10 @@
-import {Event} from './event.model';
+import {CalendarEvent} from './event.model';
 
 export class EventGroup {
-  events: Event[];
+  events: CalendarEvent[];
   date: Date;
 
-  constructor(events: Event[], date: Date) {
+  constructor(events: CalendarEvent[], date: Date) {
     this.events = events;
     this.date = date;
   }

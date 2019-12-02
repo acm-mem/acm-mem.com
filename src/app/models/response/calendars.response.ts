@@ -1,5 +1,7 @@
 import {BaseResponse} from './base.response';
 
 export interface CalendarsResponse extends BaseResponse {
-  calendars: any[];
+  events: any;
+  success: boolean;
+  total: number;
 }

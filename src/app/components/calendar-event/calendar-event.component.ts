@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Event} from '../../models/event.model';
+import {CalendarEvent} from '../../models/event.model';
 
 @Component({
   selector: 'app-calendar-event',
@@ -8,9 +8,11 @@ import {Event} from '../../models/event.model';
 })
 export class CalendarEventComponent implements OnInit {
   @Input()
-  event: Event;
+  event: CalendarEvent;
 
-  constructor() { }
+  constructor() {
+    console.log('event:', this.event);
+  }
 
   ngOnInit() {
   }

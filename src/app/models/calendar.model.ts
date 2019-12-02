@@ -1,5 +1,5 @@
 import {Serializable, Serialize, SerializeProperty} from 'ts-serializer';
-import {Event} from './event.model';
+import {CalendarEvent} from './event.model';
 
 @Serialize({})
 export class Calendar extends Serializable {
@@ -14,9 +14,9 @@ export class Calendar extends Serializable {
 
   @SerializeProperty({
     list: true,
-    type: Event
+    type: CalendarEvent
   })
-  events: Event[];
+  events: CalendarEvent[];
 
   static fromJSON(data: any): Calendar {
     const newCalendar = new Calendar();
