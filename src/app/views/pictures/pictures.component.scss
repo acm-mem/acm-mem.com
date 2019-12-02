@@ -1,9 +1,9 @@
 .pictures {
   margin-top: 2em;
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 1em;
-  grid-template-rows: 300px 300px 300px;
 
   a {
     width: 100%;

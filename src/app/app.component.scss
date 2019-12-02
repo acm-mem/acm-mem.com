@@ -12,7 +12,7 @@
     max-width: 100%;
     justify-content: center;
 
-    @media (max-width: 400px) {
+    @media (max-width: 1024px) {
       flex-direction: column;
       a {
         border-right: none!important;
@@ -59,8 +59,11 @@
 
   main#main_content {
     max-width: 60%;
-    min-width: 960px;
     margin: 0 auto;
+    @media (max-width: 1024px) {
+      max-width: unset;
+      padding: 1em;
+    }
   }
 }
 
@@ -103,4 +106,10 @@
 .bar-background {
   background: url('/assets/images/admin-building.png') center center no-repeat;
   background-size: cover;
+}
+
+.contribute {
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
