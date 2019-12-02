@@ -54,22 +54,7 @@ export class BackendService {
     return this.httpClient.get<CalendarsResponse>('https://proxy.acm-mem.com:6969/api/calendar').pipe(
       map(res => {
         if (res.success) {
-          const calendar = Calendar.fromJSON(res.calendars[0]);
-          if (calendar && calendar.events) {
-            const eventGroups: EventGroup[] = [];
-            calendar.events.map(event => event.startDate)
-              .forEach(eventDate => {
-                  const eventsForDate = calendar.events.filter(event => {
-                    console.log(event);
-                    return event.startDate.toISOString() === eventDate.toISOString();
-                  });
-
-                  console.log(eventsForDate);
-                  eventGroups.push(new EventGroup(eventsForDate, eventDate));
-
-              });
-            return eventGroups;
-          }
+          console.log(res);
         }
         return [];
       })
