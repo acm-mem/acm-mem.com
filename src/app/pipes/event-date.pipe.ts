@@ -7,10 +7,8 @@ import {CalendarEvent} from '../models/event.model';
 export class EventDatePipe implements PipeTransform {
 
   transform(event: CalendarEvent): string {
-    console.log('Transforming event:', event);
-    const localeOptions = {weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric'};
-    const localeStartDate =  event.startDate.toLocaleDateString('en-US', localeOptions);
-    const localeEndDate =  event.endDate.toLocaleDateString('en-US', localeOptions);
+    const localeStartDate =  event.startDate.toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
+    const localeEndDate =  event.endDate.toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, '$1$3');
 
     return `${localeStartDate} - ${localeEndDate}`;
   }

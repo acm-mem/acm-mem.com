@@ -9,10 +9,10 @@ export class CalendarEvent extends Serializable {
   description: string;
 
   @SerializeProperty()
-  start: Date;
+  start: string;
 
   @SerializeProperty()
-  end: Date;
+  end: string;
 
   location: string;
 
@@ -24,10 +24,10 @@ export class CalendarEvent extends Serializable {
   }
 
   get startDate(): Date {
-    return new Date(this.start);
+    return new Date(new Date(this.start).toISOString());
   }
 
   get endDate(): Date {
-    return new Date(this.end);
+    return new Date(new Date(this.end).toISOString());
   }
 }
