@@ -63,7 +63,7 @@ export class BackendService {
             eventGroups.push(new EventGroup(events, new Date(dateGroup)));
           });
         }
-        return eventGroups;
+        return eventGroups.reverse();
       })
     );
   }

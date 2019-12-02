@@ -23,11 +23,20 @@ export class CalendarEvent extends Serializable {
     return newEvent;
   }
 
+  private static convertDate(date: Date): Date {
+    const timeZone = 'Europe/London';
+    const newDate = new Date(date.toLocaleString('en-US', {timeZone}));
+    const diff = date.getTime() - newDate.getTime();
+
+    return new Date(date.getTime() + diff);
+  }
+
   get startDate(): Date {
-    return new Date(new Date(this.start).toISOString());
+
+    return CalendarEvent.convertDate(new Date(this.start));
   }
 
   get endDate(): Date {
-    return new Date(new Date(this.end).toISOString());
+    return CalendarEvent.convertDate(new Date(this.end));
   }
 }
