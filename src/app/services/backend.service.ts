@@ -54,7 +54,7 @@ export class BackendService {
     return this.httpClient.get<CalendarsResponse>('https://proxy.acm-mem.com:6969/api/calendar').pipe(
       map(res => {
         if (res.success) {
-          console.log(res);
+          
         }
         return [];
       })
