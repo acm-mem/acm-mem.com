@@ -9,17 +9,11 @@ export class Tweet extends Serializable {
   @SerializeProperty()
   text: string;
 
-  @SerializeProperty({
-    type: Entity
-  })
-  entities: Entity;
+  @SerializeProperty()
+  mediaURL: string;
 
-  get imageURL(): string | null {
-    if (this.entities && this.entities.mediaEntries && this.entities.mediaEntries[0] && this.entities.mediaEntries[0].imageURL) {
-      return this.entities.mediaEntries[0].imageURL;
-    }
-    return null;
-  }
+  @SerializeProperty()
+  mediaType: string;
 
   static fromJSON(data: any): Tweet {
     const newTweet = new Tweet();
