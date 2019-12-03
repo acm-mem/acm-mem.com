@@ -17,7 +17,7 @@
     <div class="recent-tweet-header">
       <h1>Recent News</h1>
     </div>
-    <img alt="Post image" *ngIf="tweet.mediaType === 'image'" src="{{tweet.mediaURL}}">
+    <img alt="Post image" *ngIf="tweet.mediaType === 'photo'" src="{{tweet.mediaURL}}">
     <video *ngIf="tweet.mediaType === 'video'" controls>
       <source src="{{tweet.mediaURL}}" type="video/mp4">
     </video>
