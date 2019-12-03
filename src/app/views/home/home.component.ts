@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {Tweet} from '../../models/tweet.model';
 import {BackendService} from '../../services/backend.service';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+import {QuotesService} from '../../services/quotes.service';
+import {Quote} from '../../models/quotes/quote.model';
 
 @Component({
   selector: 'app-home',
@@ -35,13 +37,15 @@ import {animate, query, stagger, style, transition, trigger} from '@angular/anim
 })
 export class HomeComponent implements OnInit {
 
+  quote: Observable<Quote>;
   recentTweet: Observable<Tweet>;
 
-  constructor(private title: Title, private backendService: BackendService) {
+  constructor(private title: Title, private backendService: BackendService, private quotesService: QuotesService) {
     this.title.setTitle('ACM @ Memphis - Home');
   }
 
   ngOnInit() {
     this.recentTweet = this.backendService.getTweets();
+    this.quote = this.quotesService.getRandomQuote();
   }
 }

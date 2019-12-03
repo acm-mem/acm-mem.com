@@ -45,3 +45,19 @@
     color: gray;
   }
 }
+
+.quote-wrapper {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  p {
+    color: #666666;
+  }
+
+  span {
+    color: gray;
+    font-size: 12px;
+  }
+}

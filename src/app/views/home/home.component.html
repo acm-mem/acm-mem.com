@@ -3,7 +3,16 @@
   <h2>at University of Memphis</h2>
 </div>
 
-<ng-container *ngIf="recentTweet | async as tweet; else loading">
+<div class="quote-wrapper">
+  <ng-container *ngIf="quote | async as currentQuote">
+    <div class="quote" @listStagger>
+      <p>{{currentQuote.text}}</p>
+      <span>{{currentQuote.author}}</span>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="recentTweet | async as tweet">
   <div class="recent-tweet" @listStagger>
     <div class="recent-tweet-header">
       <h1>Recent News</h1>
@@ -13,7 +22,3 @@
     <h2 class="tweet-date">at {{tweet.date | tweetDate}}</h2>
   </div>
 </ng-container>
-
-<ng-template #loading>
-  <ngx-loading [show]="true"></ngx-loading>
-</ng-template>
