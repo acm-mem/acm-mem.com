@@ -6,7 +6,7 @@ import {MembersComponent} from './views/members/members.component';
 import {PicturesComponent} from './views/pictures/pictures.component';
 import {ServicesComponent} from './views/services/services.component';
 import {HomeworkComponent} from './views/homework/homework.component';
-
+import {TextbooksComponent} from './views/textbooks/textbooks.component';
 
 const routes: Routes = [
   {
@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: 'homework',
     component: HomeworkComponent,
+  },
+  {
+    path: 'textbooks',
+    component: TextbooksComponent,
   },
 ];
 

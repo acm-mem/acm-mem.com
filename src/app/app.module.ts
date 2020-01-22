@@ -24,6 +24,8 @@ import { HomeworkComponent } from './views/homework/homework.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import {FormsModule} from '@angular/forms';
 import { HomeworkEntryComponent } from './components/homework-entry/homework-entry.component';
+import { TextbooksComponent } from './views/textbooks/textbooks.component';
+import { TextbookEntryComponent } from './components/textbook-entry/textbook-entry.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { HomeworkEntryComponent } from './components/homework-entry/homework-ent
     HomeworkComponent,
     FilterPipe,
     HomeworkEntryComponent,
+    TextbooksComponent,
+    TextbookEntryComponent,
   ],
   imports: [
     BrowserModule,

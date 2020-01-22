@@ -1,0 +1,8 @@
+<div class="search-wrapper">
+  <input [(ngModel)]="searchText" placeholder="Filter...">
+</div>
+<div class="textbook-list">
+  <app-textbook-entry *ngFor="let textbook of textbookArray | filter : searchText"
+                      [textbook]="textbook"></app-textbook-entry>
+</div>
+
