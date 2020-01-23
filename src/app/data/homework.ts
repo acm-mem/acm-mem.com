@@ -1,5 +1,11 @@
 export const homework = [
   {
+    title: 'COMP 3115',
+    url: 'https://github.com/128keaton/Spring-2020-COMP-3115',
+    semester: 'Spring 2020',
+    professor: 'Baggett'
+  },
+  {
     title: 'COMP 2150',
     url: 'https://github.com/128keaton/Fall-2019-COMP-2150',
     semester: 'Fall 2019',
