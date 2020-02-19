@@ -1,4 +1,10 @@
 export const homework = [
+   {
+    title: 'COMP 4040',
+    url: 'https://github.com/128keaton/Spring-2020-COMP-4040',
+    semester: 'Spring 2020',
+    professor: 'Sen'
+  },
   {
     title: 'COMP 3115',
     url: 'https://github.com/128keaton/Spring-2020-COMP-3115',
